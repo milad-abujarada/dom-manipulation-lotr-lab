@@ -28,6 +28,25 @@ function makeMiddleEarth() {
   // inside, add each land as an article tag
   // inside each article tag include an h1 with the name of the land
   // append middle-earth to your document body
+  var middleEarth = document.createElement("section");
+  //console.log(middleEarth);
+  var middleEarthId = middleEarth.setAttribute("id", "middle-earth");
+  //console.log(middleEarthId);
+  var articleCreation;
+  var h1Creation;
+  for (var i = 0; i < lands.length; i++) {
+    articleCreation = document.createElement("article");
+    //console.log(articleCreation);
+    h1Creation = document.createElement("h1");
+    h1Creation.innerHTML = lands[i];
+    //console.log(h1Creation);
+    articleCreation.appendChild(h1Creation);
+    //console.log(articleCreation);
+    middleEarth.appendChild(articleCreation);
+
+  }
+  body.appendChild(middleEarth);
+  
 }
 
 makeMiddleEarth();
@@ -38,8 +57,19 @@ makeMiddleEarth();
 function makeHobbits() {
   // display an unordered list of hobbits in the shire (which is the first article tag on the page)
   // give each hobbit a class of hobbit
+  var ulCreation = document.createElement("ul");
+  //console.log(ulCreation);
+  var liCreation;
+  for (var i = 0; i < hobbits.length; i++) {
+    liCreation = document.createElement("li");
+    liCreation.setAttribute("class", "hobbit");
+    liCreation.innerHTML = hobbits[i];
+    ulCreation.appendChild(liCreation);
+  }
+  var theShire = document.querySelector("article");
+  theShire.appendChild(ulCreation);
 }
-
+makeHobbits();
 
 // Part 3
 
@@ -48,9 +78,17 @@ function keepItSecretKeepItSafe() {
   // give the div a class of 'magic-imbued-jewelry'
   // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
   // add the ring as a child of Frodo
+  var divCreation = document.createElement("div");
+  divCreation.setAttribute("id", "the-ring");
+  divCreation.setAttribute("class", "magic-imbued-jewelry");
+  //divCreation.addEventListener("click", nazgulScreech());
+  var frodo = document.getElementsByClassName("hobbit")[0];
+  frodo.appendChild(divCreation);
+  frodo.addEventListener("click", nazgulScreech());
+  console.log(frodo);
 }
 
-
+keepItSecretKeepItSafe();
 // Part 4
 
 
