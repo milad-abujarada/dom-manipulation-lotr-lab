@@ -47,10 +47,11 @@ article {
   position: absolute;
   width: 28%;
   transition: all, 0.5s, ease;
+
 }
 
 article li {
-  font-size: 1.6em;
+  font-size: 1em;
 }
 
 /* The Shire */
